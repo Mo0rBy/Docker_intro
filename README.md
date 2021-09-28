@@ -103,6 +103,31 @@ To execute the Dockerfile, we run `docker build -t [accID]/[repo-name] <Dockerfi
 After *building* the image, it is possible to push the image to a repo.
 
 ## Creating a Micro-service for the Node-app with Docker
+Create a Dockerfile within the `app` directory. The Dockerfile code is:
+```
+FROM node
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install -g npm@latest
+RUN npm install express
+# RUN seeds/seed.js
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["node", "app.js"]
+```
+Navigate into the `app` directory (where the Dockerfile is located) and execute the Dockerfile with `docker build -t mo0rby/sre_node_app:v1 .` *(the `.` at the end of the command is the location of the Dockerfile. The `.` is used to signify that the Dockerfile is in the current directory)*
+
+Then run the image in a container with `docker run -d -p 80:3000 mo0rby/sre_node_app:v1`
+
+Push the image with `docker push mo0rby/sre_node_app:v1` so it is globally accessible via a remote connection.
+
+
 - Build an image for the app
 - Select the correct image for node `node`
 - `LABEL`

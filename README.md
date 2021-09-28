@@ -2,6 +2,7 @@
 ## What is Docker?
 Docker is an open source containerization platform. It enables developers to package applications into containers—standardized executable components combining application source code with the operating system (OS) libraries and dependencies required to run that code in any environment.
 
+### Docker over VirtualBox
 Docker uses virtual machines (VMs) within its containers. This means that it can be used to run VMs that you need in order to develop, build or test things on your local machine. Docker works by sharing resources between your localhost and its VM's in a much more efficient way than VirtualBox. Therefore, Docker is more lightweight and much faster than using VirtualBox or Vagrant to set up VMs.
 
 ![](https://github.com/Mo0rBy/Docker_intro/blob/main/img/Demystifying-containers_image1.png)

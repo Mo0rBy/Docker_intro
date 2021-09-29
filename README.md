@@ -138,3 +138,18 @@ Push the image with `docker push mo0rby/sre_node_app:v1` so it is globally acces
 - `RUN seeds/seed.js` (when we have the DB)
 - `EXPOSE 3000`
 - `CMD ["node", "app.js"]`
+
+
+------------------------------------------------------
+## Docker volumes
+`docker volume ls` - List docker volumes
+`docker volume create <volume-name>` - Create a new docker volume with the given name
+`docker inspect volume <volume-name>` - Returns some low-level information about the given volume
+`docker volume rm <volume-name>` - Deletes the docker volume with the given name
+
+`docker history <image-name>` - Checks the history of the given image
+
+
+Want to minimise size of an image before putting into production - do this by creating a "production build image" ("multi-stage build" or "production ready build" process)
+
+In multi-stage build, we essentialy zip it up, making it smaller, but doesnt have any impact on the image or container
